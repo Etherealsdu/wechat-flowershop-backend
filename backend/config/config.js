@@ -8,7 +8,7 @@ module.exports = {
     password: process.env.DB_PASSWORD || 'password',
     database: process.env.DB_NAME || 'wechat_flowershop',
     dialect: 'mysql',
-    logging: console.log,
+    logging: process.env.NODE_ENV === 'production' ? false : console.log,
     pool: {
       max: 10,
       min: 0,
@@ -23,7 +23,12 @@ module.exports = {
   },
   jwt: {
     secret: process.env.JWT_SECRET || 'default_secret_key_for_dev',
-    expiresIn: process.env.JWT_EXPIRES_IN || '24h'
+    expiresIn: process.env.JWT_EXPIRES_IN || '7d',
+    refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || '30d'
+  },
+  wechat: {
+    appId: process.env.WECHAT_APP_ID || '',
+    appSecret: process.env.WECHAT_APP_SECRET || ''
   },
   alioss: {
     region: process.env.ALI_OSS_REGION || 'oss-cn-hangzhou',

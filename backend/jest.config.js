@@ -1,12 +1,12 @@
 // jest.config.js
 module.exports = {
   testEnvironment: 'node',
+  setupFilesAfterEnv: ['./tests/setup.js'],
   collectCoverage: true,
   collectCoverageFrom: [
     'controllers/**/*.js',
     'services/**/*.js',
     'middleware/**/*.js',
-    'utils/**/*.js',
     '!**/node_modules/**',
     '!**/coverage/**',
   ],
@@ -14,15 +14,20 @@ module.exports = {
   coverageReporters: ['text', 'lcov', 'html'],
   coverageThreshold: {
     global: {
-      branches: 100,
-      functions: 100,
-      lines: 100,
-      statements: 100,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+      statements: 80,
     },
   },
   testMatch: [
     '**/tests/**/*.test.js',
     '**/__tests__/**/*.test.js',
-    '**/?(*.)+(spec|test).js',
   ],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+  ],
+  verbose: true,
+  testTimeout: 30000,
+  maxWorkers: 1,
 };

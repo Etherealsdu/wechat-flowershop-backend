@@ -37,6 +37,23 @@ const Order = sequelize.define('Order', {
     type: DataTypes.STRING(500),
     allowNull: false
   },
+  province: {
+    type: DataTypes.STRING(50),
+    allowNull: true
+  },
+  city: {
+    type: DataTypes.STRING(50),
+    allowNull: true
+  },
+  district: {
+    type: DataTypes.STRING(50),
+    allowNull: true
+  },
+  delivery_type: {
+    type: DataTypes.STRING(20),
+    defaultValue: 'standard',
+    comment: '配送类型: standard(标准), express(加急), scheduled(预约)'
+  },
   remark: {
     type: DataTypes.STRING(500),
     allowNull: true
@@ -63,8 +80,7 @@ const Order = sequelize.define('Order', {
   },
   updated_at: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-    onUpdate: DataTypes.NOW
+    defaultValue: DataTypes.NOW
   }
 }, {
   tableName: 'orders',
