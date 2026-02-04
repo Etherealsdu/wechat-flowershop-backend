@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # WeChat Flower Shop Admin System
 
 这是一个为微信花店小程序提供的后台管理系统，使用现代Web技术栈构建，提供完整的商品、订单、用户管理功能。
@@ -219,4 +218,3 @@ npm run test:coverage
 ## 许可证
 
 MIT License
->>>>>>> 4c15edd87cfed548ee157c4d7adcecbd50659526
